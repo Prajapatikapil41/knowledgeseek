@@ -27,11 +27,10 @@ class Notes extends CI_Controller {
 	}
 
 
-	public Function getSubjects(){
+	public function getSubjects(){
 		$sub_branch_id = $this->input->get("branch_id");
 		$sub_year_or_sem_id =  $this->input->get("year_or_sem_id");
 		$data['subjects'] = $this->UNM->getSubjects($sub_branch_id, $sub_year_or_sem_id);
-		
 		echo json_encode($data);
 	}
 

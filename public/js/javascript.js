@@ -22,11 +22,11 @@ $("document").ready(function () {
 $("document").ready(function () {
 	$(".owl-carousel").owlCarousel({
 		items: 1,
-		loop: true,
+		loop: false,
 		dots: false,
 		margin: 50,
 		autoplay: true,
-		autoplayTimeout: 3000,
+		autoplayTimeout: 4000,
 		autoplayHoverPause: true,
 		nav: true,
 		responsive: {
@@ -36,7 +36,7 @@ $("document").ready(function () {
 			400: {
 				items: 1,
 			},
-			555: {
+			769: {
 				items: 2,
 			},
 			1025: {

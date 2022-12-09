@@ -10,21 +10,18 @@
 					<div class="row">
 						<div class="col-lg-3 col-md-2 col-12"></div>
 						<div class="extra-div col-lg-2 col-md-2 col-12" id="s1">
-							<a href="<?php echo base_url().'notes' ?>"><i class="fa-3x fab fa-leanpub"
-									aria-hidden="true"></i>
+							<a href="<?php echo base_url() . 'notes' ?>"><i class="fa-3x fab fa-leanpub" aria-hidden="true"></i>
 								<h2>NOTES</h2>
 							</a>
 						</div>
 						<div class="extra-div col-lg-2 col-md-2 col-12" id="s2">
-							<a href="<?php echo base_url().'books' ?>"><i class="fa-3x fas fa-book"
-									aria-hidden="true"></i>
+							<a href="<?php echo base_url() . 'books' ?>"><i class="fa-3x fas fa-book" aria-hidden="true"></i>
 								<h2>BOOKS</h2>
 							</a>
 						</div>
 						<!-- <i class="fas fa-scroll"></i> -->
 						<div class="extra-div col-lg-2 col-md-2 col-12" id="s3">
-							<a href="<?php echo base_url().'blogs' ?>"><i class="fa-3x fas fa-graduation-cap"
-									aria-hidden="true"></i>
+							<a href="<?php echo base_url() . 'blogs' ?>"><i class="fa-3x fas fa-graduation-cap" aria-hidden="true"></i>
 								<h2>BLOGS</h2>
 							</a>
 						</div>
@@ -41,12 +38,12 @@
 <!--                                  small discription                            -->
 <!-- ------------------------------------------------------------------------------ -->
 
-<section class="info" >
-	<div class="container"  data-aos="flip-up">
+<section class="info">
+	<div class="container" data-aos="flip-up">
 		<h1 id="typed">Education is not the learning of facts, Rather it's the traning of the mind to think ❕❕</h1>
 		<h4 class="d-flex justify-content-end" style="color:white;">BY - &nbsp; <span> ALBERT EINSTEIN</span></h4>
 		<a href="#CTA_about" class="btnLink">
-			<img src="<?php echo base_url().'public/images/arrow.png'; ?>" />
+			<img src="<?php echo base_url() . 'public/images/arrow.png'; ?>" />
 		</a>
 	</div>
 
@@ -72,7 +69,7 @@
 			<div class="col-lg-5">
 				<div class="left-about">
 					<center>
-						<img src="<?php echo base_url().'public/images/ablogo.png' ?>" />
+						<img src="<?php echo base_url() . 'public/images/ablogo.png' ?>" />
 					</center>
 				</div>
 			</div>
@@ -125,7 +122,7 @@
 
 								<div class="card-body">
 									<div class="card-btn">
-										<a href="<?php echo base_url().'notes' ?>">Notes</a>
+										<a href="<?php echo base_url() . 'notes' ?>">Notes</a>
 									</div>
 								</div>
 								<div class="wave"></div>
@@ -145,7 +142,7 @@
 
 								<div class="card-body">
 									<div class="card-btn">
-										<a href="<?php echo base_url().'books' ?>">Books</a>
+										<a href="<?php echo base_url() . 'books' ?>">Books</a>
 									</div>
 								</div>
 								<div class="wave"></div>
@@ -165,7 +162,7 @@
 
 								<div class="card-body">
 									<div class="card-btn">
-										<a href="<?php echo base_url().'blogs'; ?>">Blogs</a>
+										<a href="<?php echo base_url() . 'blogs'; ?>">Blogs</a>
 									</div>
 								</div>
 								<div class="wave"></div>
@@ -230,7 +227,7 @@
 <!-- ------------------------------------------------------------------------------ -->
 
 <section class="blog-section mt-5">
-	<div class="container-fluid blog-container" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+	<div class="container blog-container" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
 		<div class="blogHeading">
 			<h1 class="text-uppercase text-center"><span>Our</span> Blogs</h1>
 			<h6 class="text-uppercase text-center">our popular blogs</h6>
@@ -242,15 +239,44 @@
 
 		<div class="blogs-div">
 			<div class="owl-carousel">
-				<?php if(!empty($homearticle)){ 
-					foreach($homearticle as $article){
-						if($article['status'] == 1){
-					?>
-				<div class="card3 ">
+				<?php if (!empty($homearticle)) {
+					foreach ($homearticle as $article) {
+						if ($article['status'] == 1) {
+				?>
+							<div class="card3">
+								<div class="row">
+									<div class="col-12 col-sm-8 col-md-6 col-lg-4 indexlogCard">
+										<div class="card">
+											<img class="card-img" src="<?php echo base_url() . 'public/uploads/articles/' . $article['image'] ?>" alt="<?php echo word_limiter(strip_tags($article['title']), 4) ?> image">
+											<div class="card-img-overlay">
+												<a href="<?php echo base_url() . 'blogpost/' . $article['id'] ?>" class="btn btn-light btn-sm"><?php echo $article['category_name'] ?></a>
+											</div>
+											<div class="card-body">
+												<h4 class="card-title"> <?php echo word_limiter(strip_tags($article['title']), 4) ?></h4>
+												<!-- <small class="text-muted cat">
+													<i class="far fa-clock text-info"></i> 30 minutes
+													<i class="fas fa-users text-info"></i> 4 portions
+												</small> -->
+												<p class="card-text"><?php echo word_limiter(strip_tags($article['discription']), 10) ?></p>
+												<a href="<?php echo base_url() . 'blogpost/' . $article['id'] ?>" class="btn btn-light" style="background-color: #ff4e00;background-image: linear-gradient(315deg, #ff4e00 0%, #ec9f05 74%); color: #fff; cursor: pointer;">Read Blog</a>
+											</div>
+											<div class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
+												<div class="views"><i class="far fa-clock text-danger"></i>&nbsp<?php echo date("y-M-d", strtotime($article['created_at'])); ?>
+												</div>
+												<div class="stats">
+													<i class="fas fa-users text-danger"></i>&nbsp<?php echo $article['author']; ?>
+												</div>
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- <div class="card3 ">
 					<div class="row">
 						<div class="col-lg-4 col-md-4 col-sm-12">
 							<div class="card bg-dark text-white cards">
-								<img src="<?php echo base_url().'public/uploads/articles/'. $article['image'] ?>"
+								<img src="<?php echo base_url() . 'public/uploads/articles/' . $article['image'] ?>"
 									class="card-img blogImg" alt="...">
 								<div class="card-img-overlay">
 									<h5 class="card-title">
@@ -265,15 +291,17 @@
 									<h4 class="auth">Author <span>
 											<?php echo $article['author']; ?>
 										</span></h4>
-									<a href="<?php echo base_url().'blogpost/'.$article['id'] ?>"
+									<a href="<?php echo base_url() . 'blogpost/' . $article['id'] ?>"
 										class="btn btn-primary blogBtn">Read Article <i
 											class="fas fa-arrow-circle-right"></i></a>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<?php } }} ?>
+				</div> -->
+				<?php }
+					}
+				} ?>
 			</div>
 		</div>
 	</div>

@@ -154,8 +154,7 @@
                     data: { prog_id: prog_id, branch_id: branch_id, year_or_sem_id: year_or_sem_id },
                     dataType: "json",
                     success: function (data) {
-
-                        if (data['subjects'] != "") {
+                        if (data['subjects'] != null) {
                             html += '<h2>SUBJECTS</h2>';
                             data['subjects'].forEach(elements => {
                                 html += '<div class="subData" style="background-color: ' + randomColor() + ';">'+
@@ -166,7 +165,8 @@
                             $('#result').html(html);
                           
                         } else {
-                            $('#result').html("<tr><td>NOT FOUND</td></tr>");
+                            html = '<tr><td><h1 style="color:white;">Subjects Not Avalaibal</h1></td></tr>'
+                            $('#result').html(html);
                         }
                     }
 

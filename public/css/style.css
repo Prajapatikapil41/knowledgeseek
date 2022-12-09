@@ -677,7 +677,7 @@ a:hover {
 .blog-section {
 	margin-top: 60px;
 	width: 100%;
-	height: 100%;
+	height: auto;
 	background: rgb(255, 255, 255);
 	background: linear-gradient(180deg, rgba(255, 255, 255, 1) 50%, #212529 50%);
 	position: relative;
@@ -738,77 +738,31 @@ a:hover {
 	justify-content: center;
 	align-items: center;
 }
-.cards {
-	margin: 0 50px 0 50px;
-	width: 380px;
-	height: 500px;
-	border: none;
-	margin: auto;
+
+.card {
+	width: 350px !important;
 }
 
-.cards .blogImg {
-	width: 380px;
-	height: 500px;
-	opacity: 0.5;
+.card-img {
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
 }
 
-.cards .card-img-overlay {
-	margin-top: 220px;
+.card-title {
+	margin-bottom: 0.3rem;
 }
 
-.cards .card-title {
-	text-transform: uppercase;
-	line-height: 1.5;
-	font-size: 20px;
-	font-weight: 600;
-	color: white;
-	width: 180px !important;
-	background: red;
-	border-radius: 10px;
-	padding: 7px;
-	text-align: center;
-	text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4), 0px 4px 7px rgba(0, 0, 0, 0.1),
-		0px 9px 12px rgba(0, 0, 0, 0.1);
+.cat {
+	display: inline-block;
+	margin-bottom: 1rem;
 }
 
-.cards .card-text {
-	padding-left: 20px;
-	line-height: 1.3;
-	font-size: 18px;
-	font-weight: 400;
-	text-transform: capitalize;
-	color: white;
-	text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4), 0px 4px 7px rgba(0, 0, 0, 0.1),
-		0px 9px 12px rgba(0, 0, 0, 0.1);
+.fa-users {
+	margin-left: 1rem;
 }
 
-.cards .auth {
-	padding-top: 5px;
-	text-transform: uppercase;
-	line-height: 1.5;
-	font-size: 12px;
-	font-weight: 200;
-	color: white;
-	text-align: right;
-	text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4), 0px 4px 7px rgba(0, 0, 0, 0.1),
-		0px 9px 12px rgba(0, 0, 0, 0.1);
-}
-
-.cards .auth span {
-	text-transform: uppercase;
-	line-height: 1.5;
-	font-size: 18px;
-	font-weight: 400;
-	color: white;
-}
-
-.cards .blogBt {
-	margin-top: 10px;
-	width: 20%;
-	height: 60px;
-	background: blue;
-	text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4), 0px 4px 7px rgba(0, 0, 0, 0.1),
-		0px 9px 12px rgba(0, 0, 0, 0.1);
+.card-footer {
+	font-size: 0.8rem;
 }
 
 /* ------------------------------------------------------------------------------ */
@@ -1103,6 +1057,16 @@ a:hover {
 	.card3 {
 		display: block;
 	}
+
+	.indexBlogCard {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.card3 .card {
+		width: 320px;
+	}
 }
 
 /* ------------------------------------------------------------------------------ */
@@ -1222,14 +1186,20 @@ a:hover {
 	.card3 {
 		display: block;
 	}
+
+	.card3 .card {
+		width: 325px;
+	}
+	/* 
 	.card3 .img-container {
 		height: 250px;
 		width: 100%;
 	}
+
 	.card3 .card-content {
 		border: 0;
 		border-top: 1px solid #ccc;
-	}
+	} */
 }
 
 /* ------------------------------------------------------------------------------ */
@@ -2439,3 +2409,77 @@ a:hover {
 .about_btn a:hover {
 	color: orange;
 }
+
+/* index old blog card css */
+/* .cards {
+	margin: 0 50px 0 50px;
+	width: 380px;
+	height: 500px;
+	border: none;
+	margin: auto;
+}
+
+.cards .blogImg {
+	width: 380px;
+	height: 500px;
+	opacity: 0.5;
+}
+
+.cards .card-img-overlay {
+	margin-top: 220px;
+}
+
+.cards .card-title {
+	text-transform: uppercase;
+	line-height: 1.5;
+	font-size: 20px;
+	font-weight: 600;
+	color: white;
+	width: 180px !important;
+	background: red;
+	border-radius: 10px;
+	padding: 7px;
+	text-align: center;
+	text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4), 0px 4px 7px rgba(0, 0, 0, 0.1),
+		0px 9px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cards .card-text {
+	padding-left: 20px;
+	line-height: 1.3;
+	font-size: 18px;
+	font-weight: 400;
+	text-transform: capitalize;
+	color: white;
+	text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4), 0px 4px 7px rgba(0, 0, 0, 0.1),
+		0px 9px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cards .auth {
+	padding-top: 5px;
+	text-transform: uppercase;
+	line-height: 1.5;
+	font-size: 12px;
+	font-weight: 200;
+	color: white;
+	text-align: right;
+	text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4), 0px 4px 7px rgba(0, 0, 0, 0.1),
+		0px 9px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cards .auth span {
+	text-transform: uppercase;
+	line-height: 1.5;
+	font-size: 18px;
+	font-weight: 400;
+	color: white;
+}
+
+.cards .blogBt {
+	margin-top: 10px;
+	width: 20%;
+	height: 60px;
+	background: blue;
+	text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4), 0px 4px 7px rgba(0, 0, 0, 0.1),
+		0px 9px 12px rgba(0, 0, 0, 0.1);
+} */

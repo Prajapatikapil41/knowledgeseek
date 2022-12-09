@@ -8,6 +8,7 @@ class Users_Notes_model extends CI_Model{
         $idArrays = array(
             "branch_id" => $sub_branch_id,
             "sem_year_id" => $sub_year_or_sem_id,
+            "status" => 1,
         );
 
         $this->db->select("subjects_details.*, subjects.sub_name as sub_name, subjects.subject_code as subject_code");
@@ -18,7 +19,7 @@ class Users_Notes_model extends CI_Model{
         if($res->num_rows()>0){
             return $res->result_array();
         }else{
-            return "";
+            return null;
         }
       
     }

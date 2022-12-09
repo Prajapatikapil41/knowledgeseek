@@ -189,4 +189,3 @@ class Books extends CI_Controller {
     }
 
 }
-?>
