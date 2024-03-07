@@ -6,7 +6,7 @@ class Books extends CI_Controller {
     public function __construct(){
         parent::__construct();
         if(empty($this->session->userdata('adminName')) && empty($this->session->userdata('adminID'))){
-            redirect(base_url().'kSeek/control_panel/unlock');
+            redirect(base_url().'admin/Admin_login/index');
         }
         $this->load->model("admin/Books_model", "book");
         
@@ -189,3 +189,4 @@ class Books extends CI_Controller {
     }
 
 }
+?>
