@@ -5,10 +5,12 @@ class Users_Notes_model extends CI_Model{
 
 
      public function getSubjects($sub_branch_id, $sub_year_or_sem_id){
+        $this->db->where("yearorsem_id", $sub_branch_id);
+        $b_res =  $this->db->get("branches")->row();
+       
         $idArrays = array(
-            "branch_id" => $sub_branch_id,
+            "branch_id" => $b_res->id,
             "sem_year_id" => $sub_year_or_sem_id,
-            "status" => 1,
         );
 
         $this->db->select("subjects_details.*, subjects.sub_name as sub_name, subjects.subject_code as subject_code");
@@ -19,7 +21,7 @@ class Users_Notes_model extends CI_Model{
         if($res->num_rows()>0){
             return $res->result_array();
         }else{
-            return null;
+            return "";
         }
       
     }
@@ -65,4 +67,4 @@ class Users_Notes_model extends CI_Model{
 
 }
 
-?>
+?> 
