@@ -1,4 +1,4 @@
-An Educational website that provides ﬁltered or fruitful notes, books, and other study material to the students of SVVV College (Indore) and a blog section for new technologies.
+## CODE ZIP FILE - https://drive.google.com/file/d/17uf4_2vdtbTlZspvjG3MBBCmGLRLSGk-/view?usp=drive_link 
 
 ## Demo Video
 https://github.com/Prajapatikapil41/knowledgeseek/assets/81869156/c1b95d5c-e006-4379-9cf5-313e178a09f0
