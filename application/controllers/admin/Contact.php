@@ -1,11 +1,11 @@
-	<?php
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Contact extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
         if(empty($this->session->userdata('adminName')) && empty($this->session->userdata('adminID'))){
-			redirect(base_url().'kSeek/control_panel/unlock');
+			redirect(base_url().'admin/Admin_login/index');
 		}
 
 		$this->load->model('admin/Contact_model', 'con');
@@ -49,9 +49,9 @@ class Contact extends CI_Controller {
         $data['pagination_link'] = $pagination_link;
         $data['contactDetail'] = $this->con->getContacts($param);
         $data['mainModules'] = "contact";
-      
-         $this->load->view("admin/contactUs/contacts_list", $data);
-        
+        if(!empty( $data['contactDetail'])){
+            $this->load->view("admin/contactUs/contacts_list", $data);
+        }
     }
 
 
@@ -60,13 +60,6 @@ class Contact extends CI_Controller {
         $result = $this->con->getContactInfo($id);
     
         echo json_encode($result);
-    }
-
-	
-    public function delete($id){
-      	$this->con->delete($id);
-		$this->session->set_flashdata("deleteCon", "Delete Successfully");
-		redirect(base_url()."contact_detail");
     }
 
 }
