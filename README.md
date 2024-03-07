@@ -1,10 +1,11 @@
+## Demo Video
+https://github.com/Prajapatikapil41/knowledgeseek/assets/81869156/c1b95d5c-e006-4379-9cf5-313e178a09f0
+
 Are you Worried about your studies!! because you Are not getting proper study Material or Does lack of resources is becoming an hindrance in seeking knowledge 
 📒📖📑📃📝🗒️
 So Guys!! For hashtag#SVVV students knowledge seek is the solution 🤗✌🏻
 Knowledge seek is a 👨‍💻place where you will find all kind of Study materials like hashtag#Notes📝 ,hashtag#ExaminationPapers🗒️ ,hashtag#Books📖📒, hashtag#Trendingcourses 🎫📰etc
- 🔜
- 
-(https://drive.google.com/file/d/1V4IQGEb7FOCMvYNH-0V_rMmpkELjeACx/view?usp=drive_link) 
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
