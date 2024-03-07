@@ -1,23 +1,24 @@
 <?php $this->load->view('users/header.php'); ?>
 
-<section class="Universal-section-page">
-    <div class="universalHead" >
-        <div class="mainContact">
-            <div class="container pt-4">
-                <div class="notes-heading">
+<section class="notes-section-page">
+    <div class="" style="background-color: red;">
+        <div class=" bg-warning"
+            style=" background-color: #FF8000; background-image: linear-gradient(to bottom right, #FF8000, yellow);">
+            <div class="container py-5">
+                <div class="notes-heading" data-aos="zoom-in-right" data-aos-duration="3000">
                     <div class="row h-100 align-items-center py-5">
                         <div class="col-lg-6">
-                            <div class="service_notes_Heading" data-aos="zoom-in-right" data-aos-duration="2000">
+                            <div class="service_notes_Heading">
                                 <h1 class="text-uppercase text-center notesHeading"><span
                                         style="color:#191970;">NOTES</span>
                                 </h1>
-                                <!-- <h6 class="text-uppercase text-center">Who we
-                                    are <i class="fas fa-address-card" style="color:#191970;"></i></h6> -->
+                                <h6 class="text-uppercase text-center" style="font-weight: 800;font-size:30px">Who we
+                                    are <i class="fas fa-address-card" style="color:#191970;"></i></h6>
 
                             </div>
                         </div>
-                        <div class="col-lg-6 d-lg-block abImg" data-aos="zoom-in-left" data-aos-duration="2000"><img
-                                src="<?php echo base_url().'public/images/notevector.png' ?>" alt=""
+                        <div class="col-lg-6 d-none d-lg-block"><img
+                                src="https://res.cloudinary.com/mhmd/image/upload/v1556834136/illus_kftyh4.png" alt=""
                                 class="img-fluid">
                         </div>
                     </div>
@@ -27,7 +28,7 @@
     </div>
 
     <div class="container selectSection pt-5">
-        <h1>filter your subjects  for Notes 📝</h1>
+        <h1>filter your subjects</h1>
         <center><input type="text" class="form-control searchInput" name="searchSubjects" id="search"
                 placeholder="Search"></center>
         <form>
@@ -118,7 +119,6 @@
         $('document').ready(function () {
             $('#branch').on("change", function () {
                 let branch_id = $(this).val();
-                console.log(branch_id);
                 $.ajax({
                     url: "<?php echo base_url().'users/notes/notesAjax' ?>",
                     method: "get",
@@ -145,28 +145,28 @@
                 let prog_id = $('#programe').val();
                 let branch_id = $('#branch').val();
                 let year_or_sem_id = $(this).val();
-    
                 let html = '';
-                let base = "<?php echo base_url().'syllabus/' ?>"
+                let base = "<?php echo base_url().'users/notes/showNotes/'?>"
                 $.ajax({
                     url: "<?php echo base_url().'users/notes/getSubjects' ?>",
                     method: "get",
                     data: { prog_id: prog_id, branch_id: branch_id, year_or_sem_id: year_or_sem_id },
                     dataType: "json",
                     success: function (data) {
-                        if (data['subjects'] != null) {
+
+                        if (data['subjects'] != "") {
                             html += '<h2>SUBJECTS</h2>';
                             data['subjects'].forEach(elements => {
                                 html += '<div class="subData" style="background-color: ' + randomColor() + ';">'+
-                                '<a href="' + base + elements['subject_id'] + '" target="blank"><h1>' + elements['sub_name'] + '</h1></a>'+
+                                '<a href="' + base + elements['subject_id'] + '" target="_blank"><h1>' + elements['sub_name'] + '</h1></a>'+
                                     '</div>';
                             })
 
                             $('#result').html(html);
-                          
+                            ;
+
                         } else {
-                            html = '<tr><td><h1 style="color:white;">Subjects Not Avalaibal</h1></td></tr>'
-                            $('#result').html(html);
+                            $('#result').html("<tr><td>NOT FOUND</td></tr>");
                         }
                     }
 
@@ -181,7 +181,7 @@
         $('#search').on("keyup", function () {
             let search_val = $(this).val();
             let html = '';
-            let base1 = "<?php echo base_url().'syllabus/' ?>";
+            let base1 = "<?php echo base_url().'users/notes/showNotes/'?>";
             let check = $('#year_or_sem').val();
 
             $.ajax({
@@ -190,11 +190,11 @@
                 method: "get",
                 dataType: "json",
                 success: function (searchData) {
-                    if (searchData['searchData'] != []) {
+                    if (searchData['searchData'] != '') {
                         html += '<h2>SUBJECTS</h2>';
                         searchData['searchData'].forEach(Sdata => {
                             html +=  '<div class="subData" style="background-color: ' + randomColor() + ';">'+
-                            '<a href="' + base1 + Sdata['id'] + '" target="blank"><h1>' + Sdata['sub_name'] + '</h1></a>'+
+                            '<a href="' + base1 + Sdata['id'] + '" target="_blank"><h1>' + Sdata['sub_name'] + '</h1></a>'+
                                 '</div>';
                         })
                         $('#result').html(html);
@@ -203,12 +203,11 @@
                             $('#result').html("");
 
                         } else if (search_val == "" && check != null) {
-                               $('#result').html("<h1 style='color: cyan'> Subject not found ☹ </h1>");
-
+                            subjects();
                         }
 
                     } else {
-                         $('#result').html("<h1 style='color: cyan'> Subject not found ☹ </h1>");
+                        $('#result').html("<tr><td>NOT FOUND</td></tr>");
                     }
                 }
             });
@@ -217,16 +216,14 @@
 
     const randomColor = () => {
         let colors = [
-           '#476072', '#334257', '#5C6E91'
+            '#222831', '#F05454', '#FFD369',
+            '#150485', '#519872', '#900C3F'
         ];
         let random_color = colors[Math.floor(
             Math.random() * colors.length)];
 
         return random_color;
     }
-   
-//    $(document).ready(function() {
-//     $('#programe').select2();
-// });
+    
     
 </script>
